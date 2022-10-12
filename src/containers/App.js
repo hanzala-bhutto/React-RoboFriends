@@ -2,6 +2,7 @@ import './App.css';
 import { Component } from 'react';
 import 'tachyons';
 import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
 
 // main app class which is the first one to be build and rendered
 class App extends Component {
@@ -23,17 +24,22 @@ class App extends Component {
     .then(users => this.setState({robots : users}))
   }
 
-  searchOnChange(){
-
+  // search field string
+  onSearchChange = (event) => {
+    this.setState({searchField:event.target.value});
   }
 
   // renders the main app
   render(){
+    const {robots,searchField} = this.state;
+    const filteredRobots = robots.filter((robot) => {
+      return robot.name.toLowerCase().includes(searchField.toLowerCase());
+    }) 
     return (
       <div>
         <h1>RoboFriends</h1>
-          <SeachField searchField={searchOnChange}/>
-        <CardList robots={this.state.robots}/>
+        <SearchBox searchChange={this.onSearchChange}/>
+        <CardList robots={filteredRobots}/>
       </div>
     );
   }
