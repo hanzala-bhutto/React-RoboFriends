@@ -1,12 +1,12 @@
 import './App.css';
-import Card from '../components/Card';
 import { Component } from 'react';
 import 'tachyons';
+import CardList from '../components/CardList';
 
 class App extends Component {
   render(){
     return (
-      <Card />
+      <CardList />
     );
   }
 }
