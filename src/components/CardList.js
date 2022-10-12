@@ -1,9 +1,12 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = () => {
+// Cardlist component that generates multiple Card components including robot information
+const CardList = ({robots}) => {
     return (
-        <Card />
+        robots.map((robot) => {
+            return <Card id={robot.id} name={robot.name} email={robot.email}/>
+        })
     );
 }
 
