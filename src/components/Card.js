@@ -1,12 +1,13 @@
 import React from 'react';
 
+// Card component containing information about an individual robot
 const Card = ({id,name,email}) => {
     return (
         <div className="tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
-            <img alt='Robot' src={`https://robohash.org/${1}?200x200`}></img> 
+            <img alt='Robot' src={`https://robohash.org/${id}?200x200`}></img> 
             <div className='tc'>
-                <h2>Hero</h2>
-                <p>Zero</p>
+                <h2>{name}</h2>
+                <p>{email}</p>
             </div>
         </div>
     );
