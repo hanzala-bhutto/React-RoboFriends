@@ -3,6 +3,7 @@ import { Component } from 'react';
 import 'tachyons';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 
 // main app class which is the first one to be build and rendered
 class App extends Component {
@@ -39,7 +40,9 @@ class App extends Component {
       <div className='tc'>
         <h1>RoboFriends</h1>
         <SearchBox searchChange={this.onSearchChange}/>
-        <CardList robots={filteredRobots}/>
+        <Scroll>
+          <CardList robots={filteredRobots}/>
+        </Scroll>
       </div>
     );
   }
